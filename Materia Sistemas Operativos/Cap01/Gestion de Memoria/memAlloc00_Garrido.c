@@ -11,27 +11,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(){
-  // Declarar variables y pnteros
-  int *bloque00 = malloc(4*sizeof(int)); //Asignacioón de vector de 4 tamaño
-  int *puntero = malloc(15*sizeof(*puntero)); //Bloque de memoria de 14
+int main() {
+  // Declarar variables y punteros
+  int *bloque00 = malloc(4 * sizeof(int)); // Asignación de vector de tamaño 4
+  int *puntero = malloc(15 * sizeof(*puntero)); // Bloque de memoria para 15 enteros
 
-  //Llenar espacios primero bloque reservado (bloque00)
-  for(int i = 0; 1 < 4; i++){
+  // Verificar si la memoria esta correcta
+  if (bloque00 == NULL || puntero == NULL) {
+    printf("Error al asignar memoria\n");
+    return 1;
+  }
+
+  // Llenar espacios del primer bloque reservado
+  for (int i = 0; i < 4; i++) { 
     bloque00[i] = i * 2;
-    printf("El valor de memoria reservada Bloque00[%d] = %d ", i, bloque00[i]);
-    
-  }
-  //Llenar espacios primero bloque reservado (puntero)
-  if(puntero!=NULL){
-    *(puntero + 8) = 9889; //se llena la posicion 9 con valor de 9889
-    printf("El valor 9na posicion de puntero es %d \n\n", *(puntero + 8));
-    printf("El valor 9na posicion de puntero es %d \n\n", puntero[8]);
+    printf("El valor de memoria reservada Bloque00[%d] = %d\n", i, bloque00[i]);
   }
 
-  //LIBERACION DE MEMORIA
+  // Llenar espacios del segundo bloque reservado
+  if (puntero != NULL) {
+    *(puntero + 8) = 9889; // Se llena la posición 9con valor de 9889
+    printf("El valor en la 9na posición del puntero es %d\n", *(puntero + 8));
+    printf("El valor en la 9na posición del puntero es %d\n", puntero[8]);
+  }
+
+  // LIBERACIÓN DE MEMORIA
   free(bloque00);
   free(puntero);
-  
+
   return 0;
 }
