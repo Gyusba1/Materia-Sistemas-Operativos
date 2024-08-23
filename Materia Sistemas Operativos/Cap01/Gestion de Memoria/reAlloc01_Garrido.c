@@ -4,7 +4,7 @@
 * Materia: Sistemas Operativos
 * Tema: Gestión de memoria
 * Tópico: Función realloc(), primero debemos crear ya sea un calloc() o un malloc() ya que realloc() 
-lo que hace es como actualizar el espacio de memoria reservado, si realloc() actualiza a un tamaño mayor
+lo que hace es como actualizar el espacio de memoria ya reservado, si realloc() actualiza a un tamaño mayor
 se añade memoria al final, pero si es menor, los datos se perderán.
 ******************************************************************/
 #include <stdio.h>
